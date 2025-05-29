@@ -189,14 +189,55 @@ ul {
     width: 100%;
 }
 
+/* Schedule Button */
+.schedule-button-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+}
+
+.schedule-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.schedule-button:hover {
+    background-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-dark);
+}
+
+.schedule-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.schedule-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 140, 95, 0.4), 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 /* Main Content */
 .main {
-    margin-top: var(--spacing-medium);
+    margin-top: 0;
 }
 
 /* Sections */
 .section {
-    padding: var(--spacing-large) 0;
+    padding: var(--spacing-small) 0 var(--spacing-large) 0;
 }
 
 .section:nth-child(even) {
@@ -228,6 +269,7 @@ ul {
 .section--sobre {
     position: relative;
     overflow: hidden;
+    padding-top: 0.5rem;
 }
 
 .section--sobre::before {
@@ -424,6 +466,11 @@ ul {
         margin-bottom: 0;
     }
 
+    .schedule-button {
+        font-size: 1.1rem;
+        padding: 10px 25px;
+    }
+
     .header__mobile-menu {
         display: block;
     }
@@ -484,6 +531,17 @@ ul {
 
     .header__title {
         font-size: 1rem;
+    }
+
+    .schedule-button {
+        font-size: 1rem;
+        padding: 8px 20px;
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .schedule-button-container {
+        padding: 0.5rem 0;
     }
 
     .section__title {
