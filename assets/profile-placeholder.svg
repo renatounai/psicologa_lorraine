@@ -1,0 +1,21 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="150" cy="150" r="150" fill="#f0f0f0"/>
+
+  <!-- Silhouette -->
+  <g fill="#e490ac" opacity="0.6">
+    <!-- Head -->
+    <circle cx="150" cy="120" r="60"/>
+
+    <!-- Body -->
+    <path d="M150,180 C100,180 60,220 60,280 L240,280 C240,220 200,180 150,180 Z"/>
+  </g>
+
+  <!-- Decorative Elements -->
+  <g fill="#e490ac" opacity="0.2">
+    <circle cx="70" cy="70" r="15"/>
+    <circle cx="230" cy="70" r="15"/>
+    <circle cx="70" cy="230" r="15"/>
+    <circle cx="230" cy="230" r="15"/>
+  </g>
+</svg>

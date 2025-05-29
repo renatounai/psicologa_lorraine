@@ -1,0 +1,503 @@
+
+
+/* Base Styles */
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 1000;
+    transition: top 0.3s ease;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: none;
+}
+:root {
+    --primary-color: #4A8C5F; /* Darker green with better contrast */
+    --primary-light: #C6DACB; /* Original light green as secondary color */
+    --primary-dark: #2E6B42; /* Darker shade for hover states */
+    --text-color: #2E6B42; /* Dark green text for main content */
+    --text-color-secondary: #333333; /* Original dark gray for secondary text */
+    --background-color: #F0F7F1; /* Very light green background */
+    --light-background: #E6F0E8; /* Slightly darker light green for alternating sections */
+    --border-color: #D8E6DB;
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Nunito', sans-serif;
+    --container-width: 1200px;
+    --spacing-small: 1rem;
+    --spacing-medium: 2rem;
+    --spacing-large: 3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body, p {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease, outline 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark); /* Darker shade of primary color */
+}
+
+a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container */
+.header__container,
+.section__container,
+.footer__container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-medium);
+}
+
+/* Header */
+.header {
+    background-color: var(--background-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-medium) var(--spacing-medium);
+    position: relative;
+}
+
+.header__branding {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__name {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+}
+
+.header__title {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 0.2rem;
+}
+
+.header__crp {
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+
+/* Mobile Menu Button */
+.header__mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101;
+    transition: outline 0.3s ease;
+}
+
+.header__mobile-menu:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.header__mobile-menu-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header__mobile-menu--active .header__mobile-menu-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.header__mobile-menu--active .header__mobile-menu-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.header__mobile-menu--active .header__mobile-menu-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.header__menu {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.header__menu-link {
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.header__menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-light);
+    transition: width 0.3s ease;
+}
+
+.header__menu-link:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+.main {
+    margin-top: var(--spacing-medium);
+}
+
+/* Sections */
+.section {
+    padding: var(--spacing-large) 0;
+}
+
+.section:nth-child(even) {
+    background-color: var(--light-background);
+}
+
+.section__title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-medium);
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-small);
+    font-weight: 700;
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-light);
+}
+
+/* Sobre Section */
+.section--sobre {
+    position: relative;
+    overflow: hidden;
+}
+
+.section--sobre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background-image: url('../assets/floral-pattern.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.sobre {
+    display: flex;
+    gap: var(--spacing-large);
+    align-items: center;
+}
+
+.sobre__content {
+    flex: 1;
+}
+
+.sobre__text {
+    margin-bottom: var(--spacing-small);
+    font-size: 1.1rem;
+}
+
+.sobre__image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre__image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.sobre__image:hover {
+    transform: scale(1.05);
+}
+
+/* Experiencia Section */
+.experiencia__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-medium);
+}
+
+.experiencia__item {
+    background-color: var(--background-color);
+    padding: var(--spacing-medium);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experiencia__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.experiencia__subtitle {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-small);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Formacao Section */
+.formacao__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.formacao__item {
+    background-color: var(--background-color);
+    padding: var(--spacing-medium);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.formacao__item:hover {
+    transform: translateX(5px);
+}
+
+.formacao__subtitle {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Contato Section */
+.section--contato {
+    position: relative;
+    overflow: hidden;
+}
+
+.section--contato::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background-image: url('../assets/floral-pattern.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+.contato {
+    display: flex;
+    justify-content: center;
+}
+
+.contato__info {
+    background-color: var(--background-color);
+    padding: var(--spacing-medium);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 500px;
+}
+
+.contato__item {
+    margin-bottom: var(--spacing-small);
+    display: flex;
+    flex-direction: column;
+}
+
+.contato__label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.contato__link {
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--light-background);
+    padding: var(--spacing-medium) 0;
+    margin-top: var(--spacing-large);
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-image: url('../assets/floral-pattern.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: 0;
+    transform: rotate(180deg);
+}
+
+.footer__text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header__container {
+        padding: var(--spacing-small) var(--spacing-medium);
+    }
+
+    .header__branding {
+        margin-bottom: 0;
+    }
+
+    .header__mobile-menu {
+        display: block;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--background-color);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        padding: 80px var(--spacing-medium) var(--spacing-medium);
+        transition: right 0.3s ease;
+        z-index: 100;
+    }
+
+    .header__nav--active {
+        right: 0;
+    }
+
+    .header__menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-medium);
+    }
+
+    .header__menu-item {
+        width: 100%;
+    }
+
+    .header__menu-link {
+        display: block;
+        padding: var(--spacing-small) 0;
+        font-size: 1.2rem;
+    }
+
+    .sobre {
+        flex-direction: column;
+    }
+
+    .sobre__image {
+        width: 200px;
+        height: 200px;
+        margin-top: var(--spacing-medium);
+    }
+
+    .experiencia__list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header__name {
+        font-size: 1.5rem;
+    }
+
+    .header__title {
+        font-size: 1rem;
+    }
+
+    .section__title {
+        font-size: 1.5rem;
+    }
+
+    .sobre__text,
+    .experiencia__text,
+    .formacao__text {
+        font-size: 1rem;
+    }
+
+    .experiencia__subtitle,
+    .formacao__subtitle {
+        font-size: 1.1rem;
+    }
+}
