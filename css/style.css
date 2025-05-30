@@ -102,9 +102,34 @@ ul {
     position: relative;
 }
 
+/* Social Icons */
+.header__social {
+    margin-left: auto;
+    margin-right: var(--spacing-medium);
+    z-index: 101; /* Ensure it's above the mobile menu */
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.instagram-icon {
+    stroke: currentColor;
+}
+
 .header__branding {
     display: flex;
     flex-direction: column;
+    order: 0; /* Ensure it's the first item in the flex container */
 }
 
 .header__name {
@@ -134,6 +159,7 @@ ul {
     padding: 10px;
     z-index: 101;
     transition: outline 0.3s ease;
+    order: 3; /* Ensure it's the last item in the flex container */
 }
 
 .header__mobile-menu:focus {
@@ -450,6 +476,16 @@ ul {
     transform: rotate(180deg);
 }
 
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__social {
+    margin-bottom: var(--spacing-small);
+}
+
 .footer__text {
     text-align: center;
     font-size: 0.9rem;
@@ -464,6 +500,12 @@ ul {
 
     .header__branding {
         margin-bottom: 0;
+    }
+
+    .header__social {
+        margin-right: 0;
+        margin-left: var(--spacing-small);
+        order: 1; /* Position after branding but before mobile menu button */
     }
 
     .schedule-button {
@@ -487,6 +529,7 @@ ul {
         padding: 80px var(--spacing-medium) var(--spacing-medium);
         transition: right 0.3s ease;
         z-index: 100;
+        order: 2; /* Position between social icon and mobile menu button */
     }
 
     .header__nav--active {
@@ -531,6 +574,15 @@ ul {
 
     .header__title {
         font-size: 1rem;
+    }
+
+    .header__social {
+        margin-right: 5px;
+    }
+
+    .instagram-icon {
+        width: 22px;
+        height: 22px;
     }
 
     .schedule-button {
